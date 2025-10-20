@@ -1,0 +1,8 @@
+# see https://sites.google.com/view/george-lang/documentation/standard-docs/kennels/creating-kennels for more info
+
+name = "my_kennel"                             # snake case "easy import identifier" (EII)
+description = "This kennel does cool things!"  # one line description
+authors = ["John Doe"]                         # authors
+version = "1.0"                                # the version
+entry = "lib.glang"                            # the kennel entry point (where your code lives)
+requires = []                                  # any external kennels required
