@@ -1,0 +1,3 @@
+stay __LCG_A = 1664525;
+stay __LCG_C = 1013904223;
+stay __LCG_M = 2 ^ 32;
