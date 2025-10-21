@@ -5,7 +5,7 @@ obj __lcg_seed = length(os_path()); # simulate randomness with length of the use
 
 func random_number() {
     __lcg_seed = (__LCG_A * __lcg_seed + __LCG_C) % __LCG_M;
-    give (__lcg_seed / __LCG_M) * 1000;
+    give __lcg_seed / __LCG_M;
 }
 
 func random_range(a, b) {
