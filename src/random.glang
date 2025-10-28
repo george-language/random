@@ -1,13 +1,28 @@
 fetch std_os;
 fetch "lcg.glang";
 
-obj __lcg_seed = length(os_path()); # simulate randomness with length of the user's PATH variable
+# attempt to use the already created random seed
+# or simulate randomness with length of the user's PATH variable
+try {
+    obj __lcg_seed = tonumber(dig(os_env("GLANG_PKG") + "/random.txt"));
+} catch _ {
+    obj __lcg_seed = length(os_path());
+}
 
 func random_number() {
     __lcg_seed = (__LCG_A * __lcg_seed + __LCG_C) % __LCG_M;
+
+    bury(os_env("GLANG_PKG") + "/random.txt", tostring(__lcg_seed)); # write a file containing the new seed
+
     give __lcg_seed / __LCG_M;
 }
 
 func random_range(a, b) {
+    if a > b {
+        obj t = a;
+        a = b;
+        b = t;
+    }
+
     give a + random_number() * (b - a);
 }
