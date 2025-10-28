@@ -1,6 +1,6 @@
 name = "random"
 description = "Generate random numbers"
 authors = ["The George Language Foundation"]
-version = "1.0"
+version = "1.1"
 entry = "lib.glang"
 requires = []
